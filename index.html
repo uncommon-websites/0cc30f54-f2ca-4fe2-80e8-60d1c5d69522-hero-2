@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DiligenceSquared - Investor-Grade Market Research</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Animation keyframes */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+                filter: blur(4px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+                filter: blur(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Base animation class - ease-out for entering elements */
+        .animate-fade-in-up {
+            opacity: 0;
+            animation: fadeInUp 0.8s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+        }
+
+        .animate-fade-in {
+            opacity: 0;
+            animation: fadeIn 0.8s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+        }
+
+        .animate-scale-in {
+            opacity: 0;
+            animation: scaleIn 1s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+        }
+
+        /* Staggered delays for sequential reveals */
+        .delay-0 { animation-delay: 0ms; }
+        .delay-100 { animation-delay: 100ms; }
+        .delay-200 { animation-delay: 200ms; }
+        .delay-300 { animation-delay: 300ms; }
+        .delay-400 { animation-delay: 400ms; }
+        .delay-500 { animation-delay: 500ms; }
+        .delay-600 { animation-delay: 600ms; }
+        .delay-700 { animation-delay: 700ms; }
+        .delay-800 { animation-delay: 800ms; }
+
+        /* Typography Utilities */
+        .text-balance { text-wrap: balance; }
+        .text-pretty { text-wrap: pretty; }
+        
+        /* Custom font smoothing */
+        body {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Hide scrollbar for cleaner look */
+        ::-webkit-scrollbar {
+            width: 0px;
+            background: transparent;
+        }
+
+        /* Image mask to mimic the fade effect in screenshot */
+        .fade-mask {
+            mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
+            -webkit-mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-900 font-sans min-h-screen flex flex-col overflow-x-hidden relative selection:bg-gray-200">
+
+    <!-- Navigation & Header Area -->
+    <header class="fixed top-0 left-0 right-0 z-50 flex flex-col items-center pt-6 md:pt-8 pointer-events-none">
+        <!-- Top Row: Logo & Nav -->
+        <div class="flex items-center gap-3 pointer-events-auto animate-fade-in delay-0">
+            <!-- Logo Icon -->
+            <button class="w-12 h-12 bg-[#F0F0F0] hover:bg-[#E5E5E5] transition-colors rounded-full flex items-center justify-center text-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-200">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="12" y1="2" x2="12" y2="22"></line>
+                    <line x1="2" y1="12" x2="22" y2="12"></line>
+                    <line x1="4.93" y1="4.93" x2="19.07" y2="19.07"></line>
+                    <line x1="19.07" y1="4.93" x2="4.93" y2="19.07"></line>
+                </svg>
+            </button>
+
+            <!-- Navigation Links -->
+            <nav class="bg-[#F0F0F0] rounded-full px-2 py-2 md:px-1 md:py-1 flex items-center">
+                <ul class="flex items-center text-sm font-medium text-gray-700">
+                    <li><a href="#" class="px-5 py-2 hover:text-black transition-colors block">Research</a></li>
+                    <li><a href="#" class="px-5 py-2 hover:text-black transition-colors block">Workflows</a></li>
+                    <li><a href="#" class="px-5 py-2 hover:text-black transition-colors block">Diligence</a></li>
+                    <li><a href="#" class="px-5 py-2 hover:text-black transition-colors block">About</a></li>
+                    <li><a href="#" class="px-5 py-2 hover:text-black transition-colors block">Demo</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <!-- Notification Pill -->
+        <div class="mt-3 pointer-events-auto animate-fade-in delay-100">
+            <a href="#" class="group flex items-center gap-2 bg-[#F5F5F5] hover:bg-[#EFEFEF] transition-colors rounded-full pl-6 pr-2 py-1.5 text-xs text-gray-500 border border-transparent hover:border-gray-200">
+                <span>Investor-grade diligence delivered in days</span>
+                <span class="w-6 h-6 rounded-full border border-blue-300 flex items-center justify-center text-blue-500 group-hover:bg-blue-50 transition-colors">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M5 12h14"></path>
+                        <path d="M12 5l7 7-7 7"></path>
+                    </svg>
+                </span>
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow relative w-full h-screen flex flex-col justify-end pb-12 md:pb-20 px-6 md:px-12 lg:px-16 max-w-[1600px] mx-auto">
+        
+        <!-- Central Image (Absolute Positioned) -->
+        <div class="absolute inset-0 flex items-center justify-center z-0 pointer-events-none overflow-hidden">
+            <!-- Using a placeholder that mimics the soft, ethereal head profile -->
+            <!-- The fade-mask class helps blend it into the white background -->
+            <div class="relative w-full h-full max-w-4xl max-h-[80vh] flex items-center justify-center animate-scale-in delay-200">
+                 <img 
+                    src="https://imolwncbqxugevwmleed.supabase.co/storage/v1/object/public/public-assets/hero-images/0cc30f54-f2ca-4fe2-80e8-60d1c5d69522/hero-2-img-0-1771015030605.png" 
+                    alt="Abstract Neural Profile" 
+                    class="w-full h-full object-contain opacity-90 fade-mask"
+                >
+            </div>
+        </div>
+
+        <!-- Text Content (Bottom Left) -->
+        <div class="relative z-10 w-full max-w-4xl">
+            <!-- Brand Label -->
+            <div class="mb-4 animate-fade-in-up delay-300">
+                <span class="text-lg font-medium text-black tracking-wide">DiligenceSquared</span>
+            </div>
+
+            <!-- Main Headline -->
+            <h1 class="text-5xl md:text-6xl lg:text-7xl font-normal text-black tracking-tight leading-[1.1] mb-8 text-balance animate-fade-in-up delay-400">
+                Investor-Grade Research at AI Speed.
+            </h1>
+
+            <!-- Explore Section -->
+            <div class="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6 animate-fade-in-up delay-500">
+                <span class="text-gray-500 text-lg font-light">Explore</span>
+                
+                <div class="flex flex-wrap gap-3">
+                    <a href="#" class="group flex items-center justify-center px-5 py-1.5 rounded-full border border-[#4A90E2] text-[#2B7DE9] text-sm font-medium hover:bg-blue-50 transition-all hover:scale-105">
+                        Expert Interviews
+                    </a>
+                    <a href="#" class="group flex items-center justify-center px-5 py-1.5 rounded-full border border-[#4A90E2] text-[#2B7DE9] text-sm font-medium hover:bg-blue-50 transition-all hover:scale-105">
+                        Deal Diligence
+                    </a>
+                    <a href="#" class="group flex items-center justify-center px-5 py-1.5 rounded-full border border-[#4A90E2] text-[#2B7DE9] text-sm font-medium hover:bg-blue-50 transition-all hover:scale-105">
+                        Blackstone Workflows
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator (Bottom Left Corner) -->
+        <div class="absolute bottom-6 left-6 md:bottom-10 md:left-12 animate-fade-in delay-700 hidden md:block">
+            <button class="w-8 h-12 bg-[#F5F5F5] hover:bg-[#E5E5E5] rounded-full flex items-center justify-center transition-colors group">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-[#334155] group-hover:translate-y-1 transition-transform">
+                    <path d="M12 5v14M19 12l-7 7-7-7"/>
+                </svg>
+            </button>
+        </div>
+
+    </main>
+
+</body>
+</html>
